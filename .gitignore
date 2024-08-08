@@ -7,5 +7,6 @@ diff_rasterization/dist
 tensorboard_3d
 screenshots
 data
-submodules
+submodules/diff-gaussian-rasterization/build/
+submodules/diff-gaussian-rasterization/diff-gaussian-rasterization.egg-info
 SIBR_viewers
