@@ -68,7 +68,7 @@ def eval_sh(deg, sh, dirs):
         [..., C]
     """
     assert deg <= 4 and deg >= 0
-    coeff = (deg + 1) ** 2
+    coeff = (deg + 1) ** 2  # 系数数量
     assert sh.shape[-1] >= coeff
 
     result = C0 * sh[..., 0]

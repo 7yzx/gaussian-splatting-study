@@ -41,7 +41,7 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
     bg_color = [1, 1, 1] if dataset.white_background else [0, 0, 0]
     background = torch.tensor(bg_color, dtype=torch.float32, device="cuda")
 
-    iter_start = torch.cuda.Event(enable_timing = True)
+    iter_start = torch.cuda.Event(enable_timing = True) # 测量cuda上的计算时间
     iter_end = torch.cuda.Event(enable_timing = True)
 
     viewpoint_stack = None
@@ -66,7 +66,7 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
 
         iter_start.record()
 
-        gaussians.update_learning_rate(iteration)
+        gaussians.update_learning_rate(iteration) # 更新学习率，特别是xyz的，为什么要学习xyz的学习率呢 TODO
 
         # Every 1000 its we increase the levels of SH up to a maximum degree
         if iteration % 1000 == 0:
